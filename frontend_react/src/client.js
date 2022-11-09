@@ -13,3 +13,7 @@ export const client = sanityClient({
 const builder = imageUrlBuilder(client);
 
 export const urlFor = (source) => builder.image(source);
+export const fileFor = (source) => {
+  const [, id, extension] = source.split('-');
+  return `https://cdn.sanity.io/files/${process.env.REACT_APP_SANITY_PROJECT_ID}/production/${id}.${extension}`
+}

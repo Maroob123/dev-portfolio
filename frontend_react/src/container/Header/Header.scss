@@ -21,7 +21,7 @@
   height: 100%;
   flex-direction: row;
 
-  padding: 6rem 2rem 0rem;
+  // padding: 6rem 2rem 0rem;
 
   @media screen and (min-width: 2000px) {
     padding-top: 8rem;
@@ -170,14 +170,40 @@
   height: 100%;
 
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   position: relative;
 
   img {
-    width: 100%;
-    object-fit: contain;
+    // width: 100%;
+    // object-fit: contain;
+    // background: #d3d9e4;
+    border-radius: 100px;
+    width: 205px;
+    height: 195px;
+    padding-top: 5px;
     z-index: 1;
+    border: 2px solid var(--secondary-color);
+  }
+  .head-text{
+    font-size: 1.5rem;
+    padding-top: 10px;
+    .wave-emoji{
+    -webkit-animation-duration: 1.8s;
+    animation-duration: 1.8s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-name: wave;
+    animation-name: wave;
+    transform-origin: 70% 70%;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    display: inline-block;
+    }
+    .Typewriter__wrapper{
+      color: var(--black-color);
+    }
   }
 
   .overlay_circle {
@@ -193,4 +219,29 @@
   @media screen and (max-width: 1200px) {
     margin: 2rem 0;
   }
+}
+@keyframes  wave{
+  0% {
+    transform: rotate(0deg);
+}
+
+10% {
+    transform: rotate(-10deg);
+}
+20% {
+    transform: rotate(12deg);
+}
+30% {
+    transform: rotate(-10deg);
+}
+40% {
+    transform: rotate(9deg);
+}
+50% {
+    transform: rotate(0deg);
+}
+100% {
+    transform: rotate(0deg);
+}
+  
 }

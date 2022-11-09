@@ -1,13 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { HiMenuAlt4, HiX } from 'react-icons/hi';
 import { motion } from 'framer-motion';
+import {client, fileFor} from '../../client';
 
 import { images } from '../../constants';
 import './Navbar.scss';
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
+  const [resume, setResume] = useState([]);
 
+  useEffect(()=>{
+    const query = '*[_type == "resume"]';
+
+      client.fetch(query)
+      .then((data) => {
+      setResume(fileFor(data[0]?.resumeUrl?.asset?._ref));})
+      .catch(console.error);
+  },[]);
+
+  console.log("resumeUrl",resume);
   return (
     <nav className="app__navbar">
       <div className="app__navbar-logo">
@@ -21,6 +33,9 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
+      <div className="app__navbar-resume">
+          <button onClick={()=> window.open(resume, '_blank', 'noopener,noreferrer')}> My Resume</button>
+      </div>
 
       <div className="app__navbar-menu">
         <HiMenuAlt4 onClick={() => setToggle(!toggle)} />
@@ -38,6 +53,8 @@ const Navbar = () => {
                   </a>
                 </li>
               ))}
+              <button onClick={()=> window.open(resume, '_blank', 'noopener,noreferrer')}> My Resume</button>
+
             </ul>
           </motion.div>
         )}
