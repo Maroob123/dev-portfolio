@@ -117,6 +117,7 @@
     background-color: var(--white-color);
     margin: 0.25rem 0;
     border: 1px solid var(--lightGray-color);
+    font-size: 0px;
 
     display: flex;
     justify-content: center;
@@ -168,6 +169,7 @@
     border-radius: 50%;
     background-color: #cbcbcb;
     margin: 0.5rem;
+    font-size: 0px;
 
     transition: background-color 0.2s ease-in-out;
 
