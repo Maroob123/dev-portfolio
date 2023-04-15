@@ -20,6 +20,17 @@ const Footer = () => {
   const handleSubmit = () => {
     setLoading(true);
 
+    if (!username || !email) {
+    setLoading(false);
+    return alert('Please fill out all fields before submitting.');
+  }
+
+   const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+  if (!emailRegex.test(email)) {
+    setLoading(false);
+    return alert('Please enter a valid email address.');
+  }
+
     const contact = {
       _type: 'contact',
       name: formData.username,
@@ -52,10 +63,10 @@ const Footer = () => {
       {!isFormSubmitted ? (
         <div className="app__footer-form app__flex">
           <div className="app__flex">
-            <input className="p-text" type="text" placeholder="Your Name" name="username" value={username} onChange={handleChangeInput} />
+            <input className="p-text" type="text" placeholder="Your Name" name="username" value={username} onChange={handleChangeInput}  required/>
           </div>
           <div className="app__flex">
-            <input className="p-text" type="email" placeholder="Your Email" name="email" value={email} onChange={handleChangeInput} />
+            <input className="p-text" type="email" placeholder="Your Email" name="email" value={email} onChange={handleChangeInput} required />
           </div>
           <div>
             <textarea
