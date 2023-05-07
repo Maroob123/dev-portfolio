@@ -1,8 +1,8 @@
 import React from 'react';
 // import { BsTwitter, BsInstagram, BsGithub } from 'react-icons/bs';
-import { BsGithub, BsLinkedin } from 'react-icons/bs';
+import { BsGithub, BsLinkedin, BsInstagram } from 'react-icons/bs';
 // import { FaFacebookF } from 'react-icons/fa';
-import {CgMail} from 'react-icons/cg';
+// import {CgMail} from 'react-icons/cg';
 
 const SocialMedia = () => (
   <div className="app__social">
@@ -14,7 +14,8 @@ const SocialMedia = () => (
     </div>
     <div>
       {/* <FaFacebookF /> */}
-     <a href="mailto:syedmuhammadmaroob123@gmail.com">E-Mail Me<CgMail /></a>
+     {/* <a href="mailto:syedmuhammadmaroob123@gmail.com">E-Mail Me<CgMail /></a> */}
+     <a href="https://www.instagram.com/maroobsyed/" target="_blank" rel="noopener noreferrer">Follow me on Instagram<BsInstagram /></a>
     </div>
   </div>
 );

@@ -46,7 +46,7 @@ const Header = () => (
       className="app__header-img"
     >
       <img src={images.profile} alt="profile_bg" />
-      <h2 className="head-text">Hi, I am <span>Syed Maroob</span> <span className='wave-emoji' role="img" aria-label="waving hand">👋</span></h2>
+      <h1 className="head-text">Hi, I am <span>Syed Maroob</span> <span className='wave-emoji' role="img" aria-label="waving hand">👋</span></h1>
       {/* <h2 className="head-text">I love learning new tech.</h2> */}
       <h2 className="head-text"><Typewriter
       options={{
