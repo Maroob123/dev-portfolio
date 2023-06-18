@@ -196,6 +196,7 @@
     animation-iteration-count: infinite;
     -webkit-animation-name: wave;
     animation-name: wave;
+    will-change: transform;
     transform-origin: 70% 70%;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
@@ -220,28 +221,29 @@
     margin: 2rem 0;
   }
 }
-@keyframes  wave{
+@keyframes wave {
   0% {
     transform: rotate(0deg);
+  }
+
+  20% {
+    transform: rotate(-10deg);
+  }
+
+  40% {
+    transform: rotate(12deg);
+  }
+
+  60% {
+    transform: rotate(-10deg);
+  }
+
+  80% {
+    transform: rotate(9deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
-10% {
-    transform: rotate(-10deg);
-}
-20% {
-    transform: rotate(12deg);
-}
-30% {
-    transform: rotate(-10deg);
-}
-40% {
-    transform: rotate(9deg);
-}
-50% {
-    transform: rotate(0deg);
-}
-100% {
-    transform: rotate(0deg);
-}
-  
-}

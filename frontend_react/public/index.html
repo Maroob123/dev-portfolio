@@ -6,7 +6,12 @@
     <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <!-- For Chrome, Firefox, and Safari -->
+    <meta name="theme-color" content="#RRGGBB">
+    <!-- For Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#RRGGBB">
+    <!-- For iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#RRGGBB">
     <meta
       name="description"
       content="Discover my web and mobile app projects on my portfolio website showcasing software development expertise"
@@ -22,10 +27,9 @@
         "url": "https://maroobsyed.web.app/",
         "jobTitle": "Software Engineer Frontend",
         "description": "Discover my web and mobile app projects on my portfolio website showcasing software development expertise",
-        "logo": "https://maroobsyed.web.app/maroobLogo.png",
         "worksFor": {
           "@type": "Organization",
-          "name": "Crescentic Digital (Pvt.) Ltd"
+          "name": "Cubix (Pvt.) Ltd"
         },
         "contactPoint": {
           "@type": "ContactPoint",
@@ -42,7 +46,7 @@
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.webmanifest" />
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.

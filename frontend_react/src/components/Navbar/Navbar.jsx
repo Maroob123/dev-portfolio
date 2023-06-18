@@ -34,7 +34,7 @@ const Navbar = () => {
         ))}
       </ul>
       <div className="app__navbar-resume">
-          <button onClick={()=> window.open(resume, '_blank', 'noopener,noreferrer')}> My Resume</button>
+          <button onClick={()=> window.open(resume, '_blank', 'noopener,noreferrer')} type="button"> My Resume</button>
       </div>
 
       <div className="app__navbar-menu">

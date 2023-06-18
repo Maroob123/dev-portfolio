@@ -15,14 +15,26 @@ const Skills = () => {
     const skillsQuery = '*[_type == "skills"]';
 
     client.fetch(query).then((data) => {
-      setExperiences(data);
+      // Sort experiences by year in descending order
+      const sortedExperiences = data.sort((a, b) => {
+        const aStartYear = getStartYear(a.year);
+        const bStartYear = getStartYear(b.year);
+        return bStartYear - aStartYear;
+      });
+      console.log("sortedExperience", sortedExperiences);
+      setExperiences(sortedExperiences);
     });
 
     client.fetch(skillsQuery).then((data) => {
       setSkills(data);
     });
   }, []);
-
+  
+  const getStartYear = (timeRange) => {
+    const [startYear] = timeRange.split(' - ');
+    const [, year] = startYear.split(' ');
+    return parseInt(year);
+  };
   return (
     <>
       <h2 className="head-text">Skills & Experiences</h2>
@@ -47,7 +59,9 @@ const Skills = () => {
           ))}
         </motion.div>
         <div className="app__skills-exp">
-          {experiences.map((experience) => (
+          {experiences.map((experience) => {
+            console.log("experience.year", experience.year); // Logging the value of experience.year
+            return(
             <motion.div
               className="app__skills-exp-item"
               key={experience.year}
@@ -56,7 +70,8 @@ const Skills = () => {
                 <p className="bold-text">{experience.year}</p>
               </div>
               <motion.div className="app__skills-exp-works">
-                {experience.works.map((work) => (
+                {experience.works.map((work) => {
+                  return(
                   <React.Fragment key={work.name}>
                     <motion.div
                       whileInView={{ opacity: [0, 1] }}
@@ -65,7 +80,7 @@ const Skills = () => {
                       data-tip
                       data-for={work.name} 
                     >
-                      <h1 className="bold-text">{work.name}</h1>
+                      <h2 className="bold-text">{work.name}</h2>
                       <p className="p-text">{work.company}</p>
                     </motion.div>
                     <ReactTooltip
@@ -78,10 +93,10 @@ const Skills = () => {
                       {work.desc}
                     </ReactTooltip>
                   </ React.Fragment>
-                ))}
+                )})}
               </motion.div>
             </motion.div>
-          ))}
+          )})}
         </div>
       </div>
     </>
